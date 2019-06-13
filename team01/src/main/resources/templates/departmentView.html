@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+<title>departmentView</title>
+</head>
+<body>
+	<table border="1">
+		<tr>
+			<th>departmentCode</th>
+			<th>departmentName</th>
+			<th>departmentCateogoryCode</th>
+			<!-- <th>departmentCategoryName</th>
+			<th>departmentDivisionCode</th>
+			<th>departmentDivisionName</th>
+			<th>departmentSectionCode</th>
+			<th>departmentSectionName</th>
+			<th>departmentLevel</th>
+			<th>memberDepartmentFinalModifierId</th>
+			<th>memberDepartmentFinalModifierName</th>
+			<th>memberDepartmentFinalModifyDate</th>	 -->		
+		</tr>
+		<tr th:each="list: ${list}" >
+			<td th:text="${list.departmentCode}"></td>
+			<td th:text="${list.departmentName}"><a href="/memberListbyDepartmentName">dd</a></td>
+			<td th:text="${list.departmentCateogoryCode}"></td>
+			<!-- <td th:text="${list.departmentCategoryName}"></td>
+			<td th:text="${list.departmentDivisionCode}"></td>	
+			<td th:text="${list.departmentDivisionName}"></td>
+			<td th:text="${list.departmentSectionCode}"></td>
+			<td th:text="${list.departmentSectionName}"></td>
+			<td th:text="${list.departmentLevel}"></td>
+			<td th:text="${list.memberDepartmentFinalModifierId}"></td>
+			<td th:text="${list.memberDepartmentFinalModifierName}"></td>
+			<td th:text="${list.memberDepartmentFinalModifyDate}"></td> -->
+		</tr>		
+	</table>
+</body>
+</html>

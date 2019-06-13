@@ -1,0 +1,23 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="ksmart31.team01.member.mapper.DepartmentMapper">
+	<select id="selectDepartmentList" resultType="ksmart31.team01.member.vo.Department">
+		select 
+			department_code as departmentCode
+			,department_name as departmentName
+			,department_category_code as departmentCateogoryCode
+			,department_category_name as departmentCategoryName
+			,department_division_code as departmentDivisionCode
+			,department_division_name as departmentDivisionName
+			,department_section_code as departmentSectionCode
+			,department_section_name as departmentSectionName
+			,department_level as departmentLevel
+			,member_department_final_modifier_id as memberDepartmentFinalModifierId
+			,member_department_final_modifier_name as memberDepartmentFinalModifierName
+			,member_department_final_modify_date as memberDepartmentFinalModifyDate 
+		from department	
+		
+	</select>
+</mapper> 

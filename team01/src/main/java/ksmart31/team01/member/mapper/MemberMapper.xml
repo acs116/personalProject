@@ -1,0 +1,57 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="ksmart31.team01.member.mapper.MemberMapper">
+	<resultMap type="ksmart31.team01.member.vo.Member" id="selectMemberList">
+		<result column="member_code" property="memberCode"/>
+		<result column="member_code" property="memberCode"/>
+		<result column="member_code" property="memberCode"/>
+		<result column="member_code" property="memberCode"/>
+		<result column="member_code" property="memberCode"/>
+		<result column="member_code" property="memberCode"/>
+		<result column="member_code" property="memberCode"/>
+		<result column="member_code" property="memberCode"/>
+		<result column="member_code" property="memberCode"/>
+		<result column="member_code" property="memberCode"/>	
+		
+	</resultMap>
+	
+	<select id="selectMemberList" resultMap="selectMemberList">
+		select
+			member_code
+			,member_id
+			,member_name
+			,member_employee_code
+			,department_name
+			,department_category_name
+			,department_division_name
+			,department_section_name
+			,member_position_name
+			,member_level_title
+			,member_join_day
+			,member_status
+			,member_work
+			,member_form_of_employment
+			,member_phone
+			,member_mobile
+			,member_address
+			,member_birth
+			,member_date
+			,member_pw
+			,member_registant_date
+		from member	
+	</select>
+	
+	
+	<select id="selectMemberListBydepartmentName" parameterType="String"
+	resultType="ksmart31.team01.member.vo.Member">
+		SELECT m.member_name, m.member_level_title, m.department_category_name, m.department_name, m.member_status
+FROM member m
+INNER JOIN department d
+ON d.department_name = m.department_category_name
+WHERE d.department_name = '경영본부';
+		
+	</select>
+	
+</mapper> 
