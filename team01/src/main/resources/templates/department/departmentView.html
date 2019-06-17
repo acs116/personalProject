@@ -9,7 +9,8 @@
 		$(document).ready(function(){
 			$('.departmentCategoryButton').click(function(){
 				console.log('departmentCategoryButton 클릭시 확인');
-						
+				let departmentCategoryCode = $(this).attr('value');
+				console.log(departmentCategoryCode);
 				$.ajax({
 					url : '/restDepartmentView'
 					,type : 'get'
@@ -22,13 +23,18 @@
 					}
 					,error : function(error){
 						console.log('error');
-					}	
+					}
+					
 				});
 				$('.departmentDivisionButton').click(function(){
-					console.log('departmentDivisionButton 클릭시 확인');	
+					console.log('departmentDivisionButton 클릭시 확인');
+					
+					
 				});
 				$('.departmentSectionButton').click(function(){
-					console.log('departmentSectionButton 클릭시 확인');	
+					console.log('departmentSectionButton 클릭시 확인');
+					console.log('error');
+					
 				});
 			});
 		});
@@ -40,11 +46,11 @@
 		
 		<div th:each="memberList: ${memberList}">
 		
-				<button class="departmentCategoryButton"  th:text="${memberList.departmentCategoryName}" ></button>
+				<button class="departmentCategoryButton"  th:text="${memberList.departmentCategoryName}" th:value="${memberList.departmentCategoryCode}"></button>
 			
-				<button class="departmentDivisionButton"  th:text="${memberList.departmentDivisionName}" ></button>
+				<button class="departmentDivisionButton"  th:text="${memberList.departmentDivisionName}" th:value="${memberList.departmentDivisionCode}"></button>
 			
-				<button class="departmentSectionButton"  th:text="${memberList.departmentSectionName}" ></button>
+				<button class="departmentSectionButton"  th:text="${memberList.departmentSectionName}" th:value="${memberList.departmentSectionCode}"></button>
 			
 		
 		</div>
