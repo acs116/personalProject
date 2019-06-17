@@ -6,9 +6,12 @@ public class Member {
 	private String memberId;
 	private String memberName;
 	private String memberEmployeeCode;
-	private String departmentName;
+	private String departmentName;				   
+	private String departmentCategoryCode;
 	private String departmentCategoryName;
+	private String departmentDivisionCode;
 	private String departmentDivisionName;
+	private String departmentSectionCode;
 	private String departmentSectionName;
 	private String memberPositionName;
 	private String memberLevelTitle;
@@ -53,17 +56,35 @@ public class Member {
 	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
 	}
+	public String getDepartmentCategoryCode() {
+		return departmentCategoryCode;
+	}
+	public void setDepartmentCategoryCode(String departmentCategoryCode) {
+		this.departmentCategoryCode = departmentCategoryCode;
+	}
 	public String getDepartmentCategoryName() {
 		return departmentCategoryName;
 	}
 	public void setDepartmentCategoryName(String departmentCategoryName) {
 		this.departmentCategoryName = departmentCategoryName;
 	}
+	public String getDepartmentDivisionCode() {
+		return departmentDivisionCode;
+	}
+	public void setDepartmentDivisionCode(String departmentDivisionCode) {
+		this.departmentDivisionCode = departmentDivisionCode;
+	}
 	public String getDepartmentDivisionName() {
 		return departmentDivisionName;
 	}
 	public void setDepartmentDivisionName(String departmentDivisionName) {
 		this.departmentDivisionName = departmentDivisionName;
+	}
+	public String getDepartmentSectionCode() {
+		return departmentSectionCode;
+	}
+	public void setDepartmentSectionCode(String departmentSectionCode) {
+		this.departmentSectionCode = departmentSectionCode;
 	}
 	public String getDepartmentSectionName() {
 		return departmentSectionName;
@@ -149,6 +170,7 @@ public class Member {
 	public void setMemberRegistantDate(String memberRegistantDate) {
 		this.memberRegistantDate = memberRegistantDate;
 	}
+	
 	
 	
 	

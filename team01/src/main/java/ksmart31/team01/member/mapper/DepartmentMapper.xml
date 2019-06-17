@@ -4,20 +4,63 @@
  
 <mapper namespace="ksmart31.team01.member.mapper.DepartmentMapper">
 	<select id="selectDepartmentList" resultType="ksmart31.team01.member.vo.Department">
-		select 
-			department_code as departmentCode
+		SELECT 
+			 member_name as memberName
 			,department_name as departmentName
-			,department_category_code as departmentCateogoryCode
+			,department_category_code as departmentCategoryCode
+			,department_category_name as departmentCategoryName
+			,department_division_code as departmentDivisionCode
+			,department_category_name as departmentCategoryName
+			,department_section_code as departmentSectionCode
+			,department_category_name as departmentCategoryName			
+			,member_position_name as memberPositionName
+			,member_id as meberId
+			,member_mobile as memberMobile
+		FROM 
+			member
+		ORDER BY 
+			department_category_name asc;
+		 <!-- <if test="departmentSectionCode != null">
+          departmentSectionCode = #{departmentSectionCode}
+    	 </if>
+	     <if test="departmentDivisionCode != null">
+	          AND title like #{title}
+	     </if>
+	     <if test="title != null">
+	          AND title like #{title}
+	     </if> -->
+		
+	</select>
+	
+	<select id="selectMemberList" parameterType="ksmart31.team01.member.vo.Member"
+	resultType="ksmart31.team01.member.vo.Member">
+		SELECT
+			 member_name as memberName
+			,department_name as departmentName
+			,department_category_code as departmentCategoryCode
 			,department_category_name as departmentCategoryName
 			,department_division_code as departmentDivisionCode
 			,department_division_name as departmentDivisionName
 			,department_section_code as departmentSectionCode
 			,department_section_name as departmentSectionName
-			,department_level as departmentLevel
-			,member_department_final_modifier_id as memberDepartmentFinalModifierId
-			,member_department_final_modifier_name as memberDepartmentFinalModifierName
-			,member_department_final_modify_date as memberDepartmentFinalModifyDate 
-		from department	
+			,member_position_name as memberPositionName
+			,member_id as meberId
+			,member_mobile as memberMobile	
+		FROM member 		
+		WHERE 
+			department_category_code = #{departmentCategoryCode}
 		
 	</select>
+	
+	
 </mapper> 
+
+
+
+
+
+
+
+
+
+

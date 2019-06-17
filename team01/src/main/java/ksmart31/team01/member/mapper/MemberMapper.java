@@ -9,5 +9,6 @@ import ksmart31.team01.member.vo.Member;
 @Mapper
 public interface MemberMapper {
 
-	public List<Member> selectMemberList();
+	
+	public List<Member> selectMemberList(Member member); 
 }

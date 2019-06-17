@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import ksmart31.team01.member.mapper.DepartmentMapper;
 import ksmart31.team01.member.vo.Department;
+import ksmart31.team01.member.vo.Member;
 
 @Service
 @Transactional
@@ -15,8 +16,10 @@ public class DepartmentService {
 	@Autowired
 	private DepartmentMapper departmentMapper;
 	
-	public List<Department> getDepartmentList(){
+	public List<Member> getDepartmentList(){
 		return departmentMapper.selectDepartmentList();
 	}
-	
+	public List<Member> getMemberList(String departmentCategoryCode){
+		return departmentMapper.selectMemberList(departmentCategoryCode);
+	}
 }

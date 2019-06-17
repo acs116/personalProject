@@ -15,10 +15,11 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
-	@GetMapping(value="/memberBasicView")
-	public String getMemberList(Model model) {
-		List<Member> list = memberService.getMemberList();
-		model.addAttribute("list", list);
-		return "memberBasicView";
+	
+	@GetMapping(value="/departmentViewM")
+	public String getMemberList(Model model,Member member) {
+		List<Member> list = memberService.getMemberList(member);
+		model.addAttribute("List", list);
+		return "departmentView";
 	}
 }

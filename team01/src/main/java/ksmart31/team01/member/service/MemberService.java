@@ -14,8 +14,8 @@ import ksmart31.team01.member.vo.Member;
 public class MemberService {
 	@Autowired
 	private MemberMapper memberMapper;
-	public List<Member> getMemberList(){
-		return memberMapper.selectMemberList();
+	public List<Member> getMemberList(Member member){
+		return memberMapper.selectMemberList(member);
 	}
 }	
 	
