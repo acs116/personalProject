@@ -170,6 +170,20 @@ public class Member {
 	public void setMemberRegistantDate(String memberRegistantDate) {
 		this.memberRegistantDate = memberRegistantDate;
 	}
+	@Override
+	public String toString() {
+		return "Member [memberCode=" + memberCode + ", memberId=" + memberId + ", memberName=" + memberName
+				+ ", memberEmployeeCode=" + memberEmployeeCode + ", departmentName=" + departmentName
+				+ ", departmentCategoryCode=" + departmentCategoryCode + ", departmentCategoryName="
+				+ departmentCategoryName + ", departmentDivisionCode=" + departmentDivisionCode
+				+ ", departmentDivisionName=" + departmentDivisionName + ", departmentSectionCode="
+				+ departmentSectionCode + ", departmentSectionName=" + departmentSectionName + ", memberPositionName="
+				+ memberPositionName + ", memberLevelTitle=" + memberLevelTitle + ", memberJoinDay=" + memberJoinDay
+				+ ", memberStatus=" + memberStatus + ", memberWork=" + memberWork + ", memberFormOfEmployment="
+				+ memberFormOfEmployment + ", memberPhone=" + memberPhone + ", memberMobile=" + memberMobile
+				+ ", memberAddress=" + memberAddress + ", memberBirth=" + memberBirth + ", memberDate=" + memberDate
+				+ ", memberPw=" + memberPw + ", memberRegistantDate=" + memberRegistantDate + "]";
+	}
 	
 	
 	

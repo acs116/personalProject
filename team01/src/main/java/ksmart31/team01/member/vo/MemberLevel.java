@@ -93,6 +93,17 @@ public class MemberLevel {
 	public void setPersonnelStandardFinalModifyDate(String personnelStandardFinalModifyDate) {
 		this.personnelStandardFinalModifyDate = personnelStandardFinalModifyDate;
 	}
+	@Override
+	public String toString() {
+		return "MemberLevel [memberLevelCode=" + memberLevelCode + ", memberLevelTitle=" + memberLevelTitle
+				+ ", memberLevelManagement=" + memberLevelManagement + ", memberLevelPersonnel=" + memberLevelPersonnel
+				+ ", memberLevelFinance=" + memberLevelFinance + ", memberLevelWorkflow=" + memberLevelWorkflow
+				+ ", memberLevelData=" + memberLevelData + ", memberLevelCooperation=" + memberLevelCooperation
+				+ ", memberLevelSecurity=" + memberLevelSecurity + ", memberLevelApprovalProcess="
+				+ memberLevelApprovalProcess + ", personnelStandardFinalModifierId=" + personnelStandardFinalModifierId
+				+ ", personnelStandardFinalModifierName=" + personnelStandardFinalModifierName
+				+ ", personnelStandardFinalModifyDate=" + personnelStandardFinalModifyDate + "]";
+	}
 	
 	
 }

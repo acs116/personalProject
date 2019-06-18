@@ -86,6 +86,15 @@ public class Customer {
 	public void setCustomerDate(String customerDate) {
 		this.customerDate = customerDate;
 	}
+	@Override
+	public String toString() {
+		return "Customer [customerCode=" + customerCode + ", customerName=" + customerName + ", customerPhone="
+				+ customerPhone + ", customerCorporateRegistrationNumber=" + customerCorporateRegistrationNumber
+				+ ", customerAddress=" + customerAddress + ", customerRegistrationDate=" + customerRegistrationDate
+				+ ", customerBank=" + customerBank + ", customerAccountHolder=" + customerAccountHolder
+				+ ", customerAccountNumber=" + customerAccountNumber + ", customerUse=" + customerUse + ", memberId="
+				+ memberId + ", customerDate=" + customerDate + "]";
+	}
 	
 	
 }

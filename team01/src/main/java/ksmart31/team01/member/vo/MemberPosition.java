@@ -44,6 +44,14 @@ public class MemberPosition {
 	public void setPersonnelStandardFinalModifyDate(String personnelStandardFinalModifyDate) {
 		this.personnelStandardFinalModifyDate = personnelStandardFinalModifyDate;
 	}
+	@Override
+	public String toString() {
+		return "MemberPosition [memberPositionCode=" + memberPositionCode + ", memberPositionTitle="
+				+ memberPositionTitle + ", memberPositionRank=" + memberPositionRank
+				+ ", personnelStandardFinalModifierId=" + personnelStandardFinalModifierId
+				+ ", personnelStandardFinalModifierName=" + personnelStandardFinalModifierName
+				+ ", personnelStandardFinalModifyDate=" + personnelStandardFinalModifyDate + "]";
+	}
 	
 	
 }

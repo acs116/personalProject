@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html</td> charset=UTF-8" />
+<title>leaveCategoryList.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<div class="row">
+	<div class="col-2" style="padding-right:20px; border-right: 1px solid #ccc;">
+		<h1>주</h1>
+		<h1>진</h1>
+		<h1>호</h1>
+		<h1>짱</h1>
+		<h1>짱</h1>
+		<h1>허</h1>
+		<h1>언</h1>
+		<h1>증</h1>
+		<h1>맨</h1>
+	</div>
+	<div class="col-3" style="padding-right:20px; border-right: 1px solid #ccc;">
+		<!-- 조직도 카테고리 네비바 -->
+		<h4>조인</h4>
+		<div th:each="departmentJoinMemberList : ${departmentJoinMemberList}">
+			<button th:text="${departmentJoinMemberList.memberName}"></button>
+			<button th:text="${departmentJoinMemberList.memberLevelTitle}"></button>
+			<button th:text="${departmentJoinMemberList.departmentCategoryName}"></button>
+			<button th:text="${departmentJoinMemberList.departmentDivisionName}"></button>
+			<button th:text="${departmentJoinMemberList.departmentSectionName}"></button>
+			<button th:text="${departmentJoinMemberList.memberPositionName}"></button>
+			<button th:text="${departmentJoinMemberList.memberId}"></button>
+			<button th:text="${departmentJoinMemberList.memberPhone}"></button>
+			<button th:text="${departmentJoinMemberList.memberMobile}"></button>
+			<button th:text="${departmentJoinMemberList.memberJoinDay}"></button>
+			<button th:text="${departmentJoinMemberList.memberAddress}"></button>
+			
+		</div>				
+	</div>
+</div>	
+
+	
+	
+	
+</body>
+</html>

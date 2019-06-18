@@ -1,59 +1,73 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html charset=UTF-8" />
+<meta http-equiv="Content-Type" content="text/html</td> charset=UTF-8" />
+<title>leaveCategoryList.html</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-<title>memberBasicView</title>
-	<script>
-		$(document).ready(function(){
-			$('.departmentCategoryButton').click(function(){
-				console.log('departmentCategoryButton 클릭시 확인');
-				let departmentCategoryCode = $(this).attr('value');
-				console.log(departmentCategoryCode);
-				$.ajax({
-					url : '/restDepartmentView'
-					,type : 'get'
-					,data : {
-						departmentCategoryCode : departmentCategoryCode
-					}
-					,success : function(data){
-						console.log('success');
-						console.log(data);
-					}
-					,error : function(error){
-						console.log('error');
-					}
-					
-				});
-				$('.departmentDivisionButton').click(function(){
-					console.log('departmentDivisionButton 클릭시 확인');
-					
-					
-				});
-				$('.departmentSectionButton').click(function(){
-					console.log('departmentSectionButton 클릭시 확인');
-					console.log('error');
-					
-				});
-			});
-		});
-	</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+	// 카테고리 버튼 클릭 이벤트
+	$('.departmentNameButton').click(function(){
+		console.log('조직도 카테고리 버튼 테스트 value : '+$(this).attr('value'));
+		// departmentName 별로 부서명을 조회하기 위해 이름 값을 담는 변수  
+		let departmentName = $(this).attr('value');
+		let departmentCategory = $('.departmentCategory').attr('value');
+		location.href='/departmentView?departmentName='+$(this).attr('value')+'&departmentCategory='+$('.departmentCategory').attr('value')';
+	});
+</script>
 </head>
-
 <body>
-	
-		
-		<div th:each="memberList: ${memberList}">
-		
-				<button class="departmentCategoryButton"  th:text="${memberList.departmentCategoryName}" th:value="${memberList.departmentCategoryCode}"></button>
+<div class="row">
+	<div class="col-2" style="padding-right:20px; border-right: 1px solid #ccc;">
+		<h1>주</h1>
+		<h1>진</h1>
+		<h1>호</h1>
+		<h1>짱</h1>
+		<h1>짱</h1>
+		<h1>허</h1>
+		<h1>언</h1>
+		<h1>증</h1>
+		<h1>맨</h1>
+	</div>
+	<div class="col-3" style="padding-right:20px; border-right: 1px solid #ccc;">
+		<!-- 조직도 카테고리 네비바 -->
+		<h4>조직도</h4>
+		<div th:each="departmentList : ${departmentList}">
+			<button class="departmentNameButton btn btn-outline-dark" th:text="${departmentList.departmentName}" th:value="${departmentList.departmentName}"></button>
+			<button hidden="hidden" class="departmentCategory" btn btn-outline-dark" th:text="${departmentList.departmentName}" th:value="${departmentList.departmentName}"></button>
+		</div>				
+	</div>
+	<div class="col-7">
+		<!-- 휴가 카테고리 사용 유무 메뉴 -->
+		<div>
 			
-				<button class="departmentDivisionButton"  th:text="${memberList.departmentDivisionName}" th:value="${memberList.departmentDivisionCode}"></button>
-			
-				<button class="departmentSectionButton"  th:text="${memberList.departmentSectionName}" th:value="${memberList.departmentSectionCode}"></button>
-			
-		
+			<input type="checkbox" id="leaveCategoryUseOrNotCheckBox" checked="checked">휴가 종류 사용 유무
 		</div>
-		
+		<hr>
+		<!-- 상세 휴가 정보 메뉴 -->
+		<div>
+			
+			<!-- 상세 휴가 추가 팝업-->
+			<div>
+				<button type="button" id="leaveDetailAddButton" class="btn btn-outline-primary btn-block" data-toggle="modal" data-target="#detailModal" >추가</button>
+			</div>
+			<!-- 상세 휴가 리스트 출력 -->
+			<th:block th:if="${resultMap != null}">
+				<div th:each="list : ${resultMap.leaveDetailList}">
+					<button class="leaveDetailButton btn btn-outline-info btn-block" data-toggle="modal" data-target="#detailModal" type="button" th:text="${list.leaveDetailSort}" th:value="${list.leaveDetailCode}"></button>
+				</div>
+			</th:block>
+			
+		</div>	
+</div>
+
+	
+	
+	
+	
+	
 </body>
 </html>

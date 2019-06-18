@@ -1,9 +1,49 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+ <!-- 조직도 재귀쿼리 -->
 <mapper namespace="ksmart31.team01.member.mapper.DepartmentMapper">
-	<select id="selectDepartmentList" resultType="ksmart31.team01.member.vo.Member">
+	<select id="selectDepartmentList" resultType="ksmart31.team01.member.vo.Department">
+		SELECT  CONCAT(REPEAT(' - ', level - 1), hi.department_name) AS departmentName
+		FROM    (
+		        SELECT  hierarchy_connect_by_parentIdx_eq_prior_idx(idx) AS idx, @level AS level
+		        FROM    (
+		                SELECT  @start_with := 0,
+		                        @idx := @start_with,
+		                        @level := 0
+		                ) vars, department
+		        WHERE   @idx IS NOT NULL
+		        ) ho
+		JOIN    department AS hi
+		ON      hi.idx = ho.idx
+		ORDER BY hi.department_category_code ASC
+	</select>
+	<select id="selectDepartmentJoinMemberList" resultType="ksmart31.team01.member.vo.DepartmentJoinMember" parameterType="String">
+		SELECT 
+			m.member_name as memberName
+			,m.member_level_title as memberLevelTitle
+			,m.department_category_name as departmentCategoryName
+			,m.department_division_name as departmentDivisionName
+			,m.department_section_name as departmentSectionName
+			,m.member_position_name as memberPositionName
+			,m.member_id as memberId
+			,m.member_phone as memberPhone
+			,m.member_mobile as memberMobile
+			,m.member_join_day as memberJoinDay
+			,m.member_address as memberAddress
+		FROM department d
+		INNER JOIN member m
+		if(departmentName에 담긴 문자열에 - 가 0개)
+		ON d.department_name = m.department_category_name
+		else if(- 가 1개)
+		ON d.department_name = m.department_division_name
+		else
+		ON d.department_name = m.department_section_name
+		
+		WHERE d.department_name = #{departmentName}
+	</select>
+	
+	<!-- <select id="selectDepartmentList" resultType="ksmart31.team01.member.vo.Member">
 		SELECT 
 			 member_name as memberName
 			,department_name as departmentName
@@ -20,7 +60,7 @@
 			member
 		ORDER BY 
 			department_category_name asc;
-		 <!-- <if test="departmentSectionCode != null">
+		 <if test="departmentSectionCode != null">
           departmentSectionCode = #{departmentSectionCode}
     	 </if>
 	     <if test="departmentDivisionCode != null">
@@ -28,11 +68,11 @@
 	     </if>
 	     <if test="title != null">
 	          AND title like #{title}
-	     </if> -->
+	     </if>
 		
-	</select>
+	</select> -->
 	
-	<select id="selectMemberList" parameterType="ksmart31.team01.member.vo.Member"
+	<!-- <select id="selectMemberList" parameterType="ksmart31.team01.member.vo.Member"
 	resultType="ksmart31.team01.member.vo.Member">
 		SELECT
 			 member_name as memberName
@@ -50,7 +90,7 @@
 		WHERE 
 			department_category_code = #{departmentCategoryCode}
 		
-	</select>
+	</select> -->
 	
 	
 </mapper> 

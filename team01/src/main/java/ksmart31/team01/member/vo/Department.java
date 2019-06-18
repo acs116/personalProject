@@ -4,6 +4,8 @@ public class Department {
 
 	private String departmentCode;
 	private String departmentName;
+	private int idx;
+	private int parentIdx;
 	private String departmentCateogoryCode;
 	private String departmentCategoryName;
 	private String departmentDivisionCode;
@@ -25,6 +27,18 @@ public class Department {
 	}
 	public void setDepartmentName(String departmentName) {
 		this.departmentName = departmentName;
+	}
+	public int getIdx() {
+		return idx;
+	}
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+	public int getParentIdx() {
+		return parentIdx;
+	}
+	public void setParentIdx(int parentIdx) {
+		this.parentIdx = parentIdx;
 	}
 	public String getDepartmentCateogoryCode() {
 		return departmentCateogoryCode;
@@ -86,6 +100,21 @@ public class Department {
 	public void setMemberDepartmentFinalModifyDate(String memberDepartmentFinalModifyDate) {
 		this.memberDepartmentFinalModifyDate = memberDepartmentFinalModifyDate;
 	}
+	@Override
+	public String toString() {
+		return "Department [departmentCode=" + departmentCode + ", departmentName=" + departmentName + ", idx=" + idx
+				+ ", parentIdx=" + parentIdx + ", departmentCateogoryCode=" + departmentCateogoryCode
+				+ ", departmentCategoryName=" + departmentCategoryName + ", departmentDivisionCode="
+				+ departmentDivisionCode + ", departmentDivisionName=" + departmentDivisionName
+				+ ", departmentSectionCode=" + departmentSectionCode + ", departmentSectionName="
+				+ departmentSectionName + ", departmentLevel=" + departmentLevel + ", memberDepartmentFinalModifierId="
+				+ memberDepartmentFinalModifierId + ", memberDepartmentFinalModifierName="
+				+ memberDepartmentFinalModifierName + ", memberDepartmentFinalModifyDate="
+				+ memberDepartmentFinalModifyDate + "]";
+	}
+	
+	
+	
 	
 	
 	

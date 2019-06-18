@@ -121,6 +121,21 @@ public class PersonnelStandard {
 	public void setPersonnelStandardFinalModifyDate(String personnelStandardFinalModifyDate) {
 		this.personnelStandardFinalModifyDate = personnelStandardFinalModifyDate;
 	}
+	@Override
+	public String toString() {
+		return "PersonnelStandard [personnelStandardCode=" + personnelStandardCode + ", personnelStandardMonday="
+				+ personnelStandardMonday + ", personnelStandardTuesday=" + personnelStandardTuesday
+				+ ", personnelStandardWednesday=" + personnelStandardWednesday + ", personnelStandardThursday="
+				+ personnelStandardThursday + ", personnelStandardFriday=" + personnelStandardFriday
+				+ ", personnelStandardSaturday=" + personnelStandardSaturday + ", personnelStandardSunday="
+				+ personnelStandardSunday + ", personnelStandardWorkForADay=" + personnelStandardWorkForADay
+				+ ", personnelStandardWorkWeek=" + personnelStandardWorkWeek + ", personnelStandardWorkExtension="
+				+ personnelStandardWorkExtension + ", leaveStandardApplyCode=" + leaveStandardApplyCode
+				+ ", leaveStandardApplyTitle=" + leaveStandardApplyTitle + ", leaveStandardFiscalYear="
+				+ leaveStandardFiscalYear + ", personnelStandardFinalModifierId=" + personnelStandardFinalModifierId
+				+ ", personnelStandardFinalModifierName=" + personnelStandardFinalModifierName
+				+ ", personnelStandardFinalModifyDate=" + personnelStandardFinalModifyDate + "]";
+	}
 	
 	
 	

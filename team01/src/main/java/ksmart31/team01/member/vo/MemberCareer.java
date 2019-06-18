@@ -100,6 +100,16 @@ public class MemberCareer {
 	public void setMemberFilesCode(String memberFilesCode) {
 		this.memberFilesCode = memberFilesCode;
 	}
+	@Override
+	public String toString() {
+		return "MemberCareer [memberCareerCode=" + memberCareerCode + ", memberId=" + memberId
+				+ ", memberCareerCompany=" + memberCareerCompany + ", memberEmployeeCode=" + memberEmployeeCode
+				+ ", memberName=" + memberName + ", departmentName=" + departmentName + ", memberPositionName="
+				+ memberPositionName + ", memberCareerStartDay=" + memberCareerStartDay + ", memberCareerEndDay="
+				+ memberCareerEndDay + ", memberCareerDesc=" + memberCareerDesc + ", memberCareerEtc=" + memberCareerEtc
+				+ ", memberCareerDate=" + memberCareerDate + ", memberCareerOutReason=" + memberCareerOutReason
+				+ ", memberFilesCode=" + memberFilesCode + "]";
+	}
 	
 	
 }

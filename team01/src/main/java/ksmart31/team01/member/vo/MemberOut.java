@@ -72,6 +72,14 @@ public class MemberOut {
 	public void setMemberPositionName(String memberPositionName) {
 		this.memberPositionName = memberPositionName;
 	}
+	@Override
+	public String toString() {
+		return "MemberOut [memberOutCode=" + memberOutCode + ", memberOutId=" + memberOutId + ", memberName="
+				+ memberName + ", memberOutDay=" + memberOutDay + ", memberOutCase=" + memberOutCase
+				+ ", memberOutReason=" + memberOutReason + ", memberStatus=" + memberStatus + ", memberEmployeeCode="
+				+ memberEmployeeCode + ", departmentName=" + departmentName + ", memberPositionName="
+				+ memberPositionName + "]";
+	}
 	
 	
 }

@@ -72,6 +72,16 @@ public class PersonnelInfo {
 	public void setPersonnelInfoFinalModifyDate(String personnelInfoFinalModifyDate) {
 		this.personnelInfoFinalModifyDate = personnelInfoFinalModifyDate;
 	}
+	@Override
+	public String toString() {
+		return "PersonnelInfo [personnelInfoCode=" + personnelInfoCode + ", personnelInfoGender=" + personnelInfoGender
+				+ ", personnelInfoMarriage=" + personnelInfoMarriage + ", personnelInfoMilitary="
+				+ personnelInfoMilitary + ", personnelInfoJoinDay=" + personnelInfoJoinDay + ", personnelInfoOutDay="
+				+ personnelInfoOutDay + ", personnelInfoShowOutMember=" + personnelInfoShowOutMember
+				+ ", personnelInfoFinalModifierId=" + personnelInfoFinalModifierId + ", personnelInfoFinalModifierName="
+				+ personnelInfoFinalModifierName + ", personnelInfoFinalModifyDate=" + personnelInfoFinalModifyDate
+				+ "]";
+	}
 	
 	
 }

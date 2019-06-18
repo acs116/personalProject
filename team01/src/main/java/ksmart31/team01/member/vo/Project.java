@@ -107,6 +107,16 @@ public class Project {
 	public void setProjectWorkingExpenses(int projectWorkingExpenses) {
 		this.projectWorkingExpenses = projectWorkingExpenses;
 	}
+	@Override
+	public String toString() {
+		return "Project [projectCode=" + projectCode + ", memberId=" + memberId + ", memberName=" + memberName
+				+ ", departmentName=" + departmentName + ", memberPositionName=" + memberPositionName + ", projectName="
+				+ projectName + ", projectUse=" + projectUse + ", projectRegistrationDate=" + projectRegistrationDate
+				+ ", projectEndDate=" + projectEndDate + ", projectCompleteDate=" + projectCompleteDate
+				+ ", projectTotalCost=" + projectTotalCost + ", projectExpenditure=" + projectExpenditure
+				+ ", projectDifference=" + projectDifference + ", projectThePersonInCharge=" + projectThePersonInCharge
+				+ ", projectWorkingExpenses=" + projectWorkingExpenses + "]";
+	}
 	
 	
 	

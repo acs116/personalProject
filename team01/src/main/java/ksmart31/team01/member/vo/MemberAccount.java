@@ -65,6 +65,13 @@ public class MemberAccount {
 	public void setMemberPositionName(String memberPositionName) {
 		this.memberPositionName = memberPositionName;
 	}
+	@Override
+	public String toString() {
+		return "MemberAccount [memberAccountCode=" + memberAccountCode + ", memberName=" + memberName + ", memberId="
+				+ memberId + ", memberAccountBank=" + memberAccountBank + ", memberAccountNumber=" + memberAccountNumber
+				+ ", memberAccountDate=" + memberAccountDate + ", memberEmployeeCode=" + memberEmployeeCode
+				+ ", departmentName=" + departmentName + ", memberPositionName=" + memberPositionName + "]";
+	}
 	
 	
 }

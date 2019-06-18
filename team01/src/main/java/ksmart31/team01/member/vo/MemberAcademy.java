@@ -121,6 +121,18 @@ public class MemberAcademy {
 	public void setMemberFilesCode(String memberFilesCode) {
 		this.memberFilesCode = memberFilesCode;
 	}
+	@Override
+	public String toString() {
+		return "MemberAcademy [memberAcademyCode=" + memberAcademyCode + ", memberId=" + memberId
+				+ ", memberAcademyName=" + memberAcademyName + ", memberAcademyStartDay=" + memberAcademyStartDay
+				+ ", memberAcademyEndDay=" + memberAcademyEndDay + ", memberAcademyComplete=" + memberAcademyComplete
+				+ ", memberAcademyInstitution=" + memberAcademyInstitution + ", memberAcademyCost=" + memberAcademyCost
+				+ ", memberAcademyPlace=" + memberAcademyPlace + ", memberAcademyPurpose=" + memberAcademyPurpose
+				+ ", memberAcademyDesc=" + memberAcademyDesc + ", memberAcademyDate=" + memberAcademyDate
+				+ ", memberEmployeeCode=" + memberEmployeeCode + ", memberName=" + memberName + ", departmentName="
+				+ departmentName + ", memberPositionName=" + memberPositionName + ", memberFilesCode=" + memberFilesCode
+				+ "]";
+	}
 	
 	
 }
