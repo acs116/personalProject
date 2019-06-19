@@ -4,7 +4,8 @@
  <!-- 조직도 재귀쿼리 -->
 <mapper namespace="ksmart31.team01.member.mapper.DepartmentMapper">
 	<select id="selectDepartmentList" resultType="ksmart31.team01.member.vo.Department">
-		SELECT  CONCAT(REPEAT(' - ', level - 1), hi.department_name) AS departmentName
+		SELECT  CONCAT(REPEAT('-', level - 1), hi.department_name) AS departmentName
+		
 		FROM    (
 		        SELECT  hierarchy_connect_by_parentIdx_eq_prior_idx(idx) AS idx, @level AS level
 		        FROM    (
@@ -18,30 +19,48 @@
 		ON      hi.idx = ho.idx
 		ORDER BY hi.department_category_code ASC
 	</select>
-	<select id="selectDepartmentJoinMemberList" resultType="ksmart31.team01.member.vo.DepartmentJoinMember" parameterType="String">
-		SELECT 
-			m.member_name as memberName
-			,m.member_level_title as memberLevelTitle
-			,m.department_category_name as departmentCategoryName
-			,m.department_division_name as departmentDivisionName
-			,m.department_section_name as departmentSectionName
-			,m.member_position_name as memberPositionName
-			,m.member_id as memberId
-			,m.member_phone as memberPhone
-			,m.member_mobile as memberMobile
-			,m.member_join_day as memberJoinDay
-			,m.member_address as memberAddress
-		FROM department d
-		INNER JOIN member m
-		if(departmentName에 담긴 문자열에 - 가 0개)
-		ON d.department_name = m.department_category_name
-		else if(- 가 1개)
-		ON d.department_name = m.department_division_name
-		else
-		ON d.department_name = m.department_section_name
-		
-		WHERE d.department_name = #{departmentName}
+	<select id="selectDepartmentJoinMemberList" resultType="ksmart31.team01.member.vo.DepartmentJoinMember" parameterType="java.util.Map">
+	SELECT
+	m.member_name as memberName
+	,m.member_level_title as memberLevelTitle
+	,m.department_category_name as departmentCategoryName
+	,m.department_division_name as departmentDivisionName
+	,m.department_section_name as departmentSectionName
+	,m.member_position_name as memberPositionName
+	,m.member_id as memberId
+	,m.member_phone as memberPhone
+	,m.member_mobile as memberMobile
+	,m.member_join_day as memberJoinDay
+	,m.member_address as memberAddress
+	FROM department d
+	INNER JOIN member m
+			
+	 <choose>
+		<when test="departmentNumber == 1">	
+			ON d.department_name = m.department_division_name	
+		</when>	
+		<when test="departmentNumber == 2">	
+			ON d.department_name = m.department_section_name	
+		</when>	
+		<when test="departmentNumber == 0">	
+			ON d.department_name = m.department_category_name	
+		</when>	
+	</choose>
+		WHERE d.department_name = #{departmentName}	 
+			
+			<!-- <if test="departmentNumber == 1">
+				ON d.department_name = m.department_division_name
+			</if>
+			<if test="departmentNumber == 2">
+				ON d.department_name = m.department_section_name
+			</if>
+			<if test="departmentNumber == 0">
+				ON d.department_name = m.department_category_name
+			</if>
+	WHERE d.department_name = #{departmentName}  -->
+	
 	</select>
+
 	
 	<!-- <select id="selectDepartmentList" resultType="ksmart31.team01.member.vo.Member">
 		SELECT 

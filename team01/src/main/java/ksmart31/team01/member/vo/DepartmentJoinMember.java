@@ -13,6 +13,7 @@ public class DepartmentJoinMember {
 	private String memberMobile;
 	private String memberJoinDay;
 	private String memberAddress;
+	private int departmentNumber;
 	public String getMemberName() {
 		return memberName;
 	}
@@ -79,14 +80,22 @@ public class DepartmentJoinMember {
 	public void setMemberAddress(String memberAddress) {
 		this.memberAddress = memberAddress;
 	}
+	public int getDepartmentNumber() {
+		return departmentNumber;
+	}
+	public void setDepartmentNumber(int departmentNumber) {
+		this.departmentNumber = departmentNumber;
+	}
 	@Override
 	public String toString() {
 		return "DepartmentJoinMember [memberName=" + memberName + ", memberLevelTitle=" + memberLevelTitle
 				+ ", departmentCategoryName=" + departmentCategoryName + ", departmentDivisionName="
 				+ departmentDivisionName + ", departmentSectionName=" + departmentSectionName + ", memberPositionName="
 				+ memberPositionName + ", memberId=" + memberId + ", memberPhone=" + memberPhone + ", memberMobile="
-				+ memberMobile + ", memberJoinDay=" + memberJoinDay + ", memberAddress=" + memberAddress + "]";
+				+ memberMobile + ", memberJoinDay=" + memberJoinDay + ", memberAddress=" + memberAddress
+				+ ", departmentNumber=" + departmentNumber + "]";
 	}
+	
 	
 	
 }

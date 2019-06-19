@@ -14,9 +14,10 @@ $(document).ready(function(){
 		console.log('조직도 카테고리 버튼 테스트 value : '+$(this).attr('value'));
 		// departmentName 별로 부서명을 조회하기 위해 이름 값을 담는 변수  
 		let departmentName = $(this).attr('value');
-		let departmentCategory = $('.departmentCategory').attr('value');
-		location.href='/departmentView?departmentName='+$(this).attr('value')+'&departmentCategory='+$('.departmentCategory').attr('value')';
+		console.log('departmentName 확인');	
+		location.href='/departmentView?departmentName='+$(this).attr('value');
 	});
+});
 </script>
 </head>
 <body>
@@ -35,34 +36,47 @@ $(document).ready(function(){
 	<div class="col-3" style="padding-right:20px; border-right: 1px solid #ccc;">
 		<!-- 조직도 카테고리 네비바 -->
 		<h4>조직도</h4>
-		<div th:each="departmentList : ${departmentList}">
-			<button class="departmentNameButton btn btn-outline-dark" th:text="${departmentList.departmentName}" th:value="${departmentList.departmentName}"></button>
-			<button hidden="hidden" class="departmentCategory" btn btn-outline-dark" th:text="${departmentList.departmentName}" th:value="${departmentList.departmentName}"></button>
-		</div>				
+		<div th:each="recursiveList: ${recursiveList}">
+			<button class="departmentNameButton btn btn-outline-dark" id="${recursiveList.departmentName}" th:text="${recursiveList.departmentName}" th:value="${recursiveList.departmentName}"></button>
+		</div>						
 	</div>
 	<div class="col-7">
 		<!-- 휴가 카테고리 사용 유무 메뉴 -->
 		<div>
-			
-			<input type="checkbox" id="leaveCategoryUseOrNotCheckBox" checked="checked">휴가 종류 사용 유무
+			<h4>조직도 상세보기</h4>			
 		</div>
 		<hr>
 		<!-- 상세 휴가 정보 메뉴 -->
-		<div>
-			
-			<!-- 상세 휴가 추가 팝업-->
-			<div>
-				<button type="button" id="leaveDetailAddButton" class="btn btn-outline-primary btn-block" data-toggle="modal" data-target="#detailModal" >추가</button>
-			</div>
-			<!-- 상세 휴가 리스트 출력 -->
-			<th:block th:if="${resultMap != null}">
-				<div th:each="list : ${resultMap.leaveDetailList}">
-					<button class="leaveDetailButton btn btn-outline-info btn-block" data-toggle="modal" data-target="#detailModal" type="button" th:text="${list.leaveDetailSort}" th:value="${list.leaveDetailCode}"></button>
-				</div>
-			</th:block>
-			
-		</div>	
-</div>
+			<table border="1">
+				<tr>
+					<th>memberName</th>
+					<th>memberLevelTitle</th>
+					<th>departmentCategoryName</th>
+					<th>departmentDivisionName</th>
+					<th>departmentSectionName</th>
+					<th>memberPositionName</th>
+					<th>memberId</th>
+					<th>memberPhone</th>
+					<th>memberMobile</th>
+					<th>memberJoinDay</th>
+					<th>memberAddress</th>
+				</tr>
+				<tr th:each="departmentJoinMemberList:${departmentJoinMemberList}">
+					<td th:text="${departmentJoinMemberList.memberName}"></td>
+					<td th:text="${departmentJoinMemberList.memberLevelTitle}"></td>
+					<td th:text="${departmentJoinMemberList.departmentCategoryName}"></td>
+					<td th:text="${departmentJoinMemberList.departmentDivisionName}"></td>
+					<td th:text="${departmentJoinMemberList.departmentSectionName}"></td>
+					<td th:text="${departmentJoinMemberList.memberPositionName}"></td>
+					<td th:text="${departmentJoinMemberList.memberId}"></td>
+					<td th:text="${departmentJoinMemberList.memberPhone}"></td>
+					<td th:text="${departmentJoinMemberList.memberMobile}"></td>
+					<td th:text="${departmentJoinMemberList.memberJoinDay}"></td>
+					<td th:text="${departmentJoinMemberList.memberAddress}"></td>
+				</tr>	
+			</table>
+	</div>
+</div>	
 
 	
 	
