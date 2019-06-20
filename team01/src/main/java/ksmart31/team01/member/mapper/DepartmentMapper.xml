@@ -3,9 +3,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <!-- 조직도 재귀쿼리 -->
 <mapper namespace="ksmart31.team01.member.mapper.DepartmentMapper">
+	<!-- 재귀함수와 쿼리를 이용하여 조직도를 보여준다 -->
 	<select id="selectDepartmentList" resultType="ksmart31.team01.member.vo.Department">
-		SELECT  CONCAT(REPEAT('-', level - 1), hi.department_name) AS departmentName
-		
+		SELECT  CONCAT(REPEAT('-', level - 1), hi.department_name) AS departmentName		
 		FROM    (
 		        SELECT  hierarchy_connect_by_parentIdx_eq_prior_idx(idx) AS idx, @level AS level
 		        FROM    (
@@ -19,107 +19,46 @@
 		ON      hi.idx = ho.idx
 		ORDER BY hi.department_category_code ASC
 	</select>
+	<!-- department부서명과 member조직원 기본정보를 departmentName으로 조인해서 가져온다 -->
 	<select id="selectDepartmentJoinMemberList" resultType="ksmart31.team01.member.vo.DepartmentJoinMember" parameterType="java.util.Map">
-	SELECT
-	m.member_name as memberName
-	,m.member_level_title as memberLevelTitle
-	,m.department_category_name as departmentCategoryName
-	,m.department_division_name as departmentDivisionName
-	,m.department_section_name as departmentSectionName
-	,m.member_position_name as memberPositionName
-	,m.member_id as memberId
-	,m.member_phone as memberPhone
-	,m.member_mobile as memberMobile
-	,m.member_join_day as memberJoinDay
-	,m.member_address as memberAddress
-	FROM department d
-	INNER JOIN member m
-			
-	 <choose>
-		<when test="departmentNumber == 1">	
-			ON d.department_name = m.department_division_name	
-		</when>	
-		<when test="departmentNumber == 2">	
-			ON d.department_name = m.department_section_name	
-		</when>	
-		<when test="departmentNumber == 0">	
-			ON d.department_name = m.department_category_name	
-		</when>	
-	</choose>
-		WHERE d.department_name = #{departmentName}	 
-			
-			<!-- <if test="departmentNumber == 1">
-				ON d.department_name = m.department_division_name
-			</if>
-			<if test="departmentNumber == 2">
-				ON d.department_name = m.department_section_name
-			</if>
-			<if test="departmentNumber == 0">
-				ON d.department_name = m.department_category_name
-			</if>
-	WHERE d.department_name = #{departmentName}  -->
-	
-	</select>
-
-	
-	<!-- <select id="selectDepartmentList" resultType="ksmart31.team01.member.vo.Member">
-		SELECT 
-			 member_name as memberName
-			,department_name as departmentName
-			,department_category_code as departmentCategoryCode
-			,department_category_name as departmentCategoryName
-			,department_division_code as departmentDivisionCode
-			,department_division_name as departmentDivisionName
-			,department_section_code as departmentSectionCode
-			,department_section_name as departmentSectionName			
-			,member_position_name as memberPositionName
-			,member_id as meberId
-			,member_mobile as memberMobile
-		FROM 
-			member
-		ORDER BY 
-			department_category_name asc;
-		 <if test="departmentSectionCode != null">
-          departmentSectionCode = #{departmentSectionCode}
-    	 </if>
-	     <if test="departmentDivisionCode != null">
-	          AND title like #{title}
-	     </if>
-	     <if test="title != null">
-	          AND title like #{title}
-	     </if>
-		
-	</select> -->
-	
-	<!-- <select id="selectMemberList" parameterType="ksmart31.team01.member.vo.Member"
-	resultType="ksmart31.team01.member.vo.Member">
 		SELECT
-			 member_name as memberName
-			,department_name as departmentName
-			,department_category_code as departmentCategoryCode
-			,department_category_name as departmentCategoryName
-			,department_division_code as departmentDivisionCode
-			,department_division_name as departmentDivisionName
-			,department_section_code as departmentSectionCode
-			,department_section_name as departmentSectionName
-			,member_position_name as memberPositionName
-			,member_id as meberId
-			,member_mobile as memberMobile	
-		FROM member 		
-		WHERE 
-			department_category_code = #{departmentCategoryCode}
-		
+			m.member_name as memberName
+			,m.member_level_title as memberLevelTitle
+			,m.department_category_name as departmentCategoryName
+			,m.department_division_name as departmentDivisionName
+			,m.department_section_name as departmentSectionName
+			,m.member_position_name as memberPositionName
+			,m.member_id as memberId
+			,m.member_phone as memberPhone
+			,m.member_mobile as memberMobile
+			,m.member_join_day as memberJoinDay
+			,m.member_address as memberAddress
+		FROM department d
+		INNER JOIN member m				
+		<!-- choose if else처럼 쓸수있다  -->		
+		<choose>
+			<when test="departmentNumber == 1">	
+				ON d.department_name = m.department_division_name	
+			</when>	
+			<when test="departmentNumber == 2">	
+				ON d.department_name = m.department_section_name	
+			</when>	
+			<when test="departmentNumber == 0">	
+				ON d.department_name = m.department_category_name	
+			</when>	
+		</choose>
+			WHERE d.department_name = #{departmentName}
+	</select>			 
+</mapper>			
+		<!-- 조건문 if문 -->
+	<!-- 	<if test="departmentNumber == 1">
+			ON d.department_name = m.department_division_name
+		</if>
+		<if test="departmentNumber == 2">
+			ON d.department_name = m.department_section_name
+		</if>
+		<if test="departmentNumber == 0">
+			ON d.department_name = m.department_category_name
+		</if>
+			WHERE d.department_name = #{departmentName}	
 	</select> -->
-	
-	
-</mapper> 
-
-
-
-
-
-
-
-
-
-

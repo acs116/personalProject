@@ -37,30 +37,13 @@ $(document).ready(function(){
 		<!-- 조직도 카테고리 네비바 -->
 		<h4>조직도</h4>
 		<div th:each="recursiveList: ${recursiveList}">
-			<button class="departmentNameButton btn btn-outline-dark" id="${recursiveList.departmentName}" th:text="${recursiveList.departmentName}" th:value="${recursiveList.departmentName}"></button>
+			<button class="departmentNameButton btn btn-outline-dark" th:text="${recursiveList.departmentName}" th:value="${recursiveList.departmentName}"></button>
 		</div>						
 	</div>
-	<div class="col-7">
-		<!-- 휴가 카테고리 사용 유무 메뉴 -->
-		<div>
-			<h4>조직도 상세보기</h4>			
-		</div>
+	<div class="col-7">				
 		<hr>
-		<!-- 상세 휴가 정보 메뉴 -->
-			<table border="1">
-				<tr>
-					<th>memberName</th>
-					<th>memberLevelTitle</th>
-					<th>departmentCategoryName</th>
-					<th>departmentDivisionName</th>
-					<th>departmentSectionName</th>
-					<th>memberPositionName</th>
-					<th>memberId</th>
-					<th>memberPhone</th>
-					<th>memberMobile</th>
-					<th>memberJoinDay</th>
-					<th>memberAddress</th>
-				</tr>
+		<!-- department부서명과 member조직원 기본정보 조인 -->
+			<table border="1">				
 				<tr th:each="departmentJoinMemberList:${departmentJoinMemberList}">
 					<td th:text="${departmentJoinMemberList.memberName}"></td>
 					<td th:text="${departmentJoinMemberList.memberLevelTitle}"></td>
@@ -77,11 +60,5 @@ $(document).ready(function(){
 			</table>
 	</div>
 </div>	
-
-	
-	
-	
-	
-	
 </body>
 </html>
