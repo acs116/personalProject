@@ -15,6 +15,7 @@ import ksmart31.team01.member.vo.Customer;
 public class CustomerController {
 	@Autowired
 	private CustomerService customerService;
+	//customer 리스트
 	@GetMapping(value="/customerListView")
 	public String getCustomerList(Model model){
 		List<Customer> customerList = customerService.getCustomerList();

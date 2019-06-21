@@ -14,6 +14,7 @@ import ksmart31.team01.member.vo.Account;
 public class AccountService {
 	@Autowired
 	private AccountMapper accountMapper;
+	//Account리스트
 	public List<Account> getAccountList(){
 		List<Account> list = accountMapper.selectAccountList();
 		System.out.println(list + "AccountService getAccountList list");

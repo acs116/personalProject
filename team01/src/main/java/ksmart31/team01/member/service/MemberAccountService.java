@@ -14,6 +14,7 @@ import ksmart31.team01.member.vo.MemberAccount;
 public class MemberAccountService {
 	@Autowired
 	private MemberAccountMapper memberAccountMapper;
+	//MemberAccount 리스트
 	public List<MemberAccount> getMemberAccountList(){
 		List<MemberAccount> list = memberAccountMapper.selectMemberAccountList();
 		System.out.println(list + "MemberAccountService getMemberAccountList list");

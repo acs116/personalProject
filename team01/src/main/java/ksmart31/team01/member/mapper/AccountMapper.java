@@ -8,6 +8,6 @@ import ksmart31.team01.member.vo.Account;
 
 @Mapper
 public interface AccountMapper {
-
+	//account 리스트
 	public List<Account> selectAccountList();
 }

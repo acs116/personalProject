@@ -14,6 +14,7 @@ import ksmart31.team01.member.vo.MemberAccount;
 public class MemberAccountController {
 	@Autowired
 	private MemberAccountService memberAccountService;
+	//memberAccount 리스트
 	@GetMapping(value="/memberAccountListView")
 	public String getMemberAccountList(Model model){
 		List<MemberAccount> list = memberAccountService.getMemberAccountList();

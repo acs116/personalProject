@@ -9,7 +9,7 @@ import ksmart31.team01.member.vo.Customer;
 
 @Mapper
 public interface CustomerMapper {
-	
+	//customer 리스트
 	public List<Customer> selectCustomerList();
 	
 }
