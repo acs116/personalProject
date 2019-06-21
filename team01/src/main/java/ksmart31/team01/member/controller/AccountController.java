@@ -1,0 +1,24 @@
+package ksmart31.team01.member.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import ksmart31.team01.member.service.AccountService;
+import ksmart31.team01.member.vo.Account;
+
+@Controller
+public class AccountController {
+	@Autowired
+	private AccountService accountService;
+	@GetMapping(value="/accountListView")
+	public String getAccountList(Model model){
+		List<Account> list = accountService.getAccountList();
+		System.out.println(list + "AccountController getAccountList [get] list");
+		model.addAttribute("accountList", list);
+		return "accountCode/accountListView";
+	}
+}

@@ -21,10 +21,5 @@ public class CustomerController {
 		System.out.println(customerList + "CustomerController getCustomerList [get] customerList");
 		model.addAttribute("customerList", customerList);
 		return "accountCode/customerListView";		
-	}
-	@GetMapping("/accountListView")
-	public String getAccountListView(){
-		
-		return "accountListView";
-	}
+	}	
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ksmart31.team01.member.mapper.MemberAccountMapper">
+	<select id="selectMemberAccountList" resultType="ksmart31.team01.member.vo.MemberAccount">
+		select
+			member_account_code as memberAccountCode
+			,member_name as memberName
+			,member_id as memberId
+			,member_account_bank as memberAccountBank
+			,member_account_number as memberAccountNumber
+			,member_account_date as memberAccountDate
+			,registration_member_id as registrationMemberId
+			,member_employee_code as memberEmployeeCode
+			,department_name as departmentName
+			,member_position_name as memberPositionName
+		from member_account	
+	</select>
+</mapper>

@@ -16,6 +16,8 @@ public class CustomerService {
 	private CustomerMapper customerMapper;
 	public List<Customer> getCustomerList(){
 		//customer 리스트
-		return customerMapper.selectCustomerList();
+		List<Customer> list = customerMapper.selectCustomerList();
+		System.out.println(list + "CustomerService getCustomerList list");
+		return list;
 	}
 }

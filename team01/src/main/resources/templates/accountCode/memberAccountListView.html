@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html</td> charset=UTF-8" />
+<title>leaveCategoryList.html</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+	// 카테고리 버튼 클릭 이벤트
+	$('#membermemberAccountListButton').click(function(){
+		console.log('계정과목 버튼 테스트');
+		location.href='/memberAccountListView';		
+	});	
+});
+</script>
+</head>
+<body>
+<div class="row">
+	<div class="col-2" style="padding-right:20px; border-right: 1px solid #ccc;">
+		<h1>주</h1>
+		<h1>진</h1>
+		<h1>호</h1>
+		<h1>짱</h1>
+		<h1>짱</h1>
+		<h1>허</h1>
+		<h1>언</h1>
+		<h1>증</h1>
+		<h1>맨</h1>
+	</div>
+	<div class="col-3" style="padding-right:20px; border-right: 1px solid #ccc;">		
+		<h4>account</h4>				
+			<div th:type="button" class="btn btn-outline-dark" id="membermemberAccountListButton">조직원 계좌</div>				
+	</div>
+	<div class="col-7">				
+		<h5>조직원 계좌 리스트</h5>					
+		<table border="1">			
+			<tr>				
+				<th>memberName</th>
+				<th>memberId</th>
+				<th>memberAccountBank</th>
+				<th>memberAccountNumber</th>
+				<th>memberAccountDate</th>
+				<th>registrationMemberId</th>
+				<th>memberEmployeeCode</th>
+				<th>departmentName</th>
+				<th>memberPositionName</th>
+												
+			</tr>			
+			 <tr th:each="memberAccountList:${memberAccountList}">					
+				<td th:text="${memberAccountList.memberName}"></td>
+				<td th:text="${memberAccountList.memberId}"></td>
+				<td th:text="${memberAccountList.memberAccountBank}"></td>
+				<td th:text="${memberAccountList.memberAccountNumber}"></td>
+				<td th:text="${memberAccountList.memberAccountDate}"></td>	
+				<td th:text="${memberAccountList.registrationMemberId}"></td>	
+				<td th:text="${memberAccountList.memberEmployeeCode}"></td>	
+				<td th:text="${memberAccountList.departmentName}"></td>	
+				<td th:text="${memberAccountList.memberPositionName}"></td>					
+			</tr>				
+		</table>					
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ksmart31.team01.member.mapper.AccountMapper">
+	<select id="selectAccountList" resultType="ksmart31.team01.member.vo.Account">
+		select
+			account_code as accountCode
+			,account_name as accountName
+			,account_use as accountUse
+			,account_date as accountDate
+			,member_id as memberId
+		from account			
+	</select>
+</mapper>  
